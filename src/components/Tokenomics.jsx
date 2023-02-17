@@ -24,46 +24,6 @@ const Tokenomics = () => {
         }]
     })
 
-    const optionsPie = {
-        indexAxis: 'y',
-        elements: {
-            bar: {
-                borderWidth: 2,
-            },
-        },
-        scales: {
-            y: {
-                ticks: {
-                    color: "transparent"
-                }
-            }
-        },
-        responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
-                align: 'start',
-                display: false,
-                labels: {
-                    color: 'white',
-
-                }
-            },
-            title: {
-                display: true,
-                text: 'Pie Chart',
-                color: '#FFFFFF',
-            },
-            tooltip: {
-                callbacks: {
-                    label: function (context) {
-                        return `${context.parsed} (${(context.parsed / 6).toFixed(2)})%`
-                    }
-                }
-            }
-
-        },
-    };
 
     const options = {
         indexAxis: 'y',
@@ -92,7 +52,7 @@ const Tokenomics = () => {
             },
             title: {
                 display: true,
-                text: 'Bar Chart',
+                text: 'ALLOCATION',
                 color: '#FFFFFF',
             },
             tooltip: {
@@ -132,7 +92,7 @@ const Tokenomics = () => {
                 <motion.img initial={{ scale: 0.5, opacity: 0 }} animate={inView ? { scale: 1, opacity: 100, y: [120, 0] } : {}} transition={{ duration: 0.7 }} src="/man.webp" alt="man" className=" absolute bottom-0 right-0 z-0 md:block hidden" ref={ref} />
                 <img src="/token.webp" alt="token" className=" absolute left-0 w-[35vh] my-auto top-0 bottom-0 ml-2" />
 
-                <section className='w-full h-auto py-20 lg:pb-[2rem] sm:pb-[20rem] pb-[15rem] relative z-10'>
+                <section className='w-full h-auto py-20 pb-[4rem] relative z-10'>
 
 
                     <div className='text-left lg:text-lg font-semibold font-saira mb-5 lg:mb-0'>
@@ -170,10 +130,9 @@ const Tokenomics = () => {
 
 
                     <div className='max-h-[25rem] flex items-center justify-between mx-auto lg:flex-row flex-col gap-y-10'>
-                        <div className='max-w-[30rem] h-full w-full flex items-center justify-center'>
+                        <div className='max-w-[30rem] h-full w-full flex items-center justify-center mx-auto mt-10'>
                             <Barchart data={data} options={options} />
                         </div>
-                        <PieChart data={data} options={optionsPie} />
                     </div>
                 </section>
 
